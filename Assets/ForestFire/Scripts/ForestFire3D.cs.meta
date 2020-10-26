@@ -3,7 +3,10 @@ guid: bc528fe6513d1ef4da8c03021dea4873
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cellPrefab: {instanceID: 0}
+  - heli: {instanceID: 0}
+  - flareGun: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

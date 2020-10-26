@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: c9cb784bf90644a468d5091bc329c6a4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - helicopter: {fileID: 754316672078492682, guid: 781acaa3b27b7e2489f8414825f04a09,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

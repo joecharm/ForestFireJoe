@@ -29,6 +29,10 @@ public class ForestFire3D : MonoBehaviour
 
     private Camera gameCamera; // the camera that is players viewport
 
+
+    // Add flare object to random location on the map
+    public GameObject flareGun;
+
     // Awake is a built-in Unity function that is only called once, before the Start function
     private void Awake()
     {
@@ -43,6 +47,12 @@ public class ForestFire3D : MonoBehaviour
         RandomiseGrid();
         PauseGame(true);
         UpdateGridVisuals();
+
+        // Spawn the helicopter into the scene
+        // spawnHelicopter(heli);
+
+        // Spawn the flaregun into the scene
+        spawnFlareGun(flareGun);
     }
 
     // this function controls whether or not to pause the game
@@ -98,7 +108,20 @@ public class ForestFire3D : MonoBehaviour
             UpdateCells();
             _gameTimer = 0f;
         }
+
+
     }
+
+    // method to randomly spawn the flare gun into the scene
+    public void spawnFlareGun(GameObject flareGun)
+    {
+        var x = UnityEngine.Random.Range(0, 150);
+        var y = UnityEngine.Random.Range(0, 150);
+
+        Instantiate(flareGun, new Vector3(80, 1, 80), Quaternion.identity);
+    }
+
+
 
     private void RandomiseGrid()
     {
