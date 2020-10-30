@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -8,12 +9,13 @@ public class TriggerFlare : MonoBehaviour
 {
     // define the game object of the prefab flare
     GameObject flare;
+    public GameObject helicopterPrefab;
 
-    public GameObject helicopter;
-
+    // boolean is the heli has been called into the scene by the player
     public bool heliCalled = false;
 
-    public float speed = 5;
+    // set the helicopter speed
+    public float speed = 8;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +26,41 @@ public class TriggerFlare : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(heliCalled == true)
-        {
-            Vector3 targetDestination = new Vector3(73.0f, 19.0f, 63.0f);
-            // move the heli
-            helicopter.transform.position = Vector3.MoveTowards(helicopter.transform.position, targetDestination, Time.deltaTime * speed);
-        }
+
+            // helicopter has not yet reached the player
+            // Once the helicopter is called this will run, placing a helicopter into the scene and moving it to the players position
+            if (heliCalled == true)
+            {
+                // get the heli 
+                GameObject helicopter = GameObject.FindGameObjectWithTag("Heli");
+                // get the target position (players position)
+                float playerPositionX = GameObject.FindGameObjectsWithTag("Player")[0].transform.position.x;
+                float playerPositionZ = GameObject.FindGameObjectsWithTag("Player")[0].transform.position.z;
+                // set the height of the heli
+                float playerPositionY = 17.0f;
+
+                // set the players position with custom height for the helicopter to be above the player
+                // We add 3 to the players position to offset the helicopter from the player, othereise it is directly above
+                Vector3 playerPosition = new Vector3(playerPositionX + 3, playerPositionY, playerPositionZ + 3);
+
+                // move the heli
+                helicopter.transform.position = Vector3.MoveTowards(helicopter.transform.position, playerPosition, Time.deltaTime * speed);
+
+                // set helicalled back to false to not call the helicopter again once it is within 3m range of the player
+                // Also show the rope now the heli has arrived
+                if(Vector3.Distance(helicopter.transform.position, playerPosition) < 3.0f)
+                {
+                 heliCalled = false;
+                // find rope and set active
+                GameObject heliRope = helicopter.transform.Find("Rope").gameObject;
+                heliRope.SetActive(true);
+
+
+                }
+
+            }
+        
+
     }
 
     // called on the first frame
@@ -51,11 +82,11 @@ public class TriggerFlare : MonoBehaviour
     // method to get the child object on the flare prefab (the sparks) and set active, this will also call the helicopter when pressed for the first time
     public void flareTrigger(XRBaseInteractor interactable)
     {
+        // set the flare sparks to active
         GameObject sparks = flare.transform.GetChild(0).gameObject;
         sparks.SetActive(true);
 
-        // call the helicopter
-
+        // call the helicopter if is has not yet been called. If Helicalled = true, this will not run and not instatiate another Helicopter
         if(heliCalled == false)
         {
             callHelicopter();
@@ -70,20 +101,11 @@ public class TriggerFlare : MonoBehaviour
         sparks.SetActive(false);
     }
 
+    // method to call the helicopter into the scene and set called to True, the update() method will then pick this up and move the heli to the player
     public void callHelicopter()
     {
-        Instantiate(helicopter, new Vector3(0.0f, 17.0f, 0.0f), Quaternion.identity);
-
-        // current position of helicopter
-        //helicopter.transform.position = new Vector3(0, 17, 0);
-
-        // Target destination of the helicopter
-        // Vector3 targetDestination = new Vector3(73.0f, 19.0f, 63.0f);
-
-        // move the heli
-       // helicopter.transform.position = Vector3.MoveTowards(helicopter.transform.position, targetDestination, Time.deltaTime * speed);
-
-        Debug.Log(helicopter.transform.position);
+        //instantiate a new heli into the scene 17m high at 0,0.
+        Instantiate(helicopterPrefab, new Vector3(0.0f, 17.0f, 0.0f), Quaternion.identity);
 
         // set helicopter to called
         heliCalled = true;

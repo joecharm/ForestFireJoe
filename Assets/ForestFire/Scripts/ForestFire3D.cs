@@ -48,9 +48,6 @@ public class ForestFire3D : MonoBehaviour
         PauseGame(true);
         UpdateGridVisuals();
 
-        // Spawn the helicopter into the scene
-        // spawnHelicopter(heli);
-
         // Spawn the flaregun into the scene
         spawnFlareGun(flareGun);
     }
@@ -115,10 +112,11 @@ public class ForestFire3D : MonoBehaviour
     // method to randomly spawn the flare gun into the scene
     public void spawnFlareGun(GameObject flareGun)
     {
-        var x = UnityEngine.Random.Range(0, 150);
-        var y = UnityEngine.Random.Range(0, 150);
+        // 4 is the scale of 1 cell prefab e.g. 40*4 is the size of tge grid if 40 is selected
+        var x = UnityEngine.Random.Range(0, gridSizeX * 4);
+        var y = UnityEngine.Random.Range(0, gridSizeY * 4);
 
-        Instantiate(flareGun, new Vector3(80, 1, 80), Quaternion.identity);
+        Instantiate(flareGun, new Vector3(x, 1, y), Quaternion.identity);
     }
 
 

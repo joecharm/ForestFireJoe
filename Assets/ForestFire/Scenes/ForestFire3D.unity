@@ -556,12 +556,9 @@ MonoBehaviour:
   cellPrefab: {fileID: 8517016399536926406, guid: bd5b6afb2ea580946a81c949556e036e,
     type: 3}
   gameRunning: 0
-  updateRate: 1
+  updateRate: 2
   flareGun: {fileID: 1266728514573484232, guid: aaa05076024cd224388226d194c55dcf,
     type: 3}
-  helicopter: {fileID: 754316672078492682, guid: 781acaa3b27b7e2489f8414825f04a09,
-    type: 3}
-  heliCalled: 0
 --- !u!4 &277846092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1837324665045843318, guid: d45e8a6999317d2428a51593da44d3ab,
@@ -1219,6 +1216,21 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 20024031}
+    - target: {fileID: 1837324663945620828, guid: d45e8a6999317d2428a51593da44d3ab,
+        type: 3}
+      propertyPath: m_HideControllerOnSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837324663945620828, guid: d45e8a6999317d2428a51593da44d3ab,
+        type: 3}
+      propertyPath: m_PlayHapticsOnSelectEnter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837324663945620828, guid: d45e8a6999317d2428a51593da44d3ab,
+        type: 3}
+      propertyPath: m_HapticSelectEnterIntensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1837324664885972817, guid: d45e8a6999317d2428a51593da44d3ab,
         type: 3}
       propertyPath: DisableSetupForDebug
@@ -1243,6 +1255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837324664885972820, guid: d45e8a6999317d2428a51593da44d3ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1837324664885972822, guid: d45e8a6999317d2428a51593da44d3ab,
         type: 3}

@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ignite
+  - Heli
+  - Rope
   layers:
   - Default
   - TransparentFX
