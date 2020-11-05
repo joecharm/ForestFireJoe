@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Heli
   - Rope
+  - Flare
   layers:
   - Default
   - TransparentFX

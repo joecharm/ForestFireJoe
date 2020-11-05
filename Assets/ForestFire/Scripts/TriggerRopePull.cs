@@ -8,7 +8,7 @@ public class TriggerRopePull : MonoBehaviour
     private bool heliLift = false;
 
     // set the helicopter speed
-    public float liftSpeed = 0.8f;
+    public float liftSpeed = 0.2f;
 
     // Start is called before the first frame update
     void Start()

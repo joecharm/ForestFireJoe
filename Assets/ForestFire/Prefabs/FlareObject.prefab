@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -2554097725844675292}
   m_Layer: 0
   m_Name: FlareObject
-  m_TagString: Untagged
+  m_TagString: Flare
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -30,6 +30,8 @@ public class ForestFire3D : MonoBehaviour
     private Camera gameCamera; // the camera that is players viewport
 
 
+    public GameObject spawnFlare;
+
     // Add flare object to random location on the map
     public GameObject flareGun;
 
@@ -116,7 +118,7 @@ public class ForestFire3D : MonoBehaviour
         var x = UnityEngine.Random.Range(0, gridSizeX * 4);
         var y = UnityEngine.Random.Range(0, gridSizeY * 4);
 
-        Instantiate(flareGun, new Vector3(x, 1, y), Quaternion.identity);
+        spawnFlare = (GameObject)Instantiate(flareGun, new Vector3(x, 1, y), Quaternion.identity);
     }
 
 
