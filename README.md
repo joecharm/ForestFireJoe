@@ -4,7 +4,9 @@ The forest will slowly burn over time. The goal of this experience is to escape 
 
 To finally escape the forest the player can grab the rope and press trigger to be lifted to safety.
 
-[![]()](https://www.youtube.com/watch?v=h9qG_waXkE8 "Showcase")
+### Video Preview
+
+[![](https://raw.githubusercontent.com/joecharm/ForestFireJoe/master/ImageThumbnail.png)](https://www.youtube.com/watch?v=h9qG_waXkE8 "Showcase")
 
 <hr>
 
