@@ -15,5 +15,7 @@ To finally escape the forest the player can grab the rope and press trigger to b
 :compass: On the players right wrist there is an arrow which will continuously point in the direction of the flare to assist the player
 
 <hr> 
+
 ### Releases
+
 [Download V1.0.0](https://github.com/joecharm/ForestFireJoe/releases/download/v1/ForestFire3D-V1.zip) 
